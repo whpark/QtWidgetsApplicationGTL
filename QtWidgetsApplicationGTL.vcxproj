@@ -72,6 +72,7 @@
       <AdditionalIncludeDirectories>$(PathGTL)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(PathGTL)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -87,6 +88,7 @@ xcopy /dy $(PathGTL)\bin\gtl.qt.x$(PlatformArchitecture)$(Configuration[0]).dll 
       <AdditionalIncludeDirectories>$(PathGTL)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
+      <BuildStlModules>false</BuildStlModules>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(PathGTL)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
