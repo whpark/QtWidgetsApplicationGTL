@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 
 #include "AboutDlg.h"
+#include "gtl/qt/util.h"
 
 using namespace gtl::qt;
 
