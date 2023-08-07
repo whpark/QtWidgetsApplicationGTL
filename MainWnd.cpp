@@ -22,6 +22,6 @@ xMainWnd::~xMainWnd() {
 }
 
 void xMainWnd::OnAction_About(bool bChecked) {
-	xAboutDlg dlg;
+	xAboutDlg dlg(this);
 	dlg.exec();
 }
