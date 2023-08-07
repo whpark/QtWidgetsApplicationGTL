@@ -12,6 +12,9 @@ public:
 	xMainWnd(QWidget* parent = nullptr);
 	~xMainWnd();
 
+protected:
+	void OnAction_About(bool checked = false);
+
 private:
 	Ui::MainWndClass ui;
 };

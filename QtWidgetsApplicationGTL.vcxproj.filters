@@ -26,7 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="App.cpp">
+      <Filter>[ Framework ]</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutDlg.cpp">
       <Filter>[ Framework ]</Filter>
     </ClCompile>
   </ItemGroup>
@@ -34,9 +37,18 @@
     <QtUic Include="MainWnd.ui">
       <Filter>[ Framework ]</Filter>
     </QtUic>
+    <QtUic Include="AboutDlg.ui">
+      <Filter>[ Framework ]</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWnd.h">
+      <Filter>[ Framework ]</Filter>
+    </QtMoc>
+    <QtMoc Include="App.h">
+      <Filter>[ Framework ]</Filter>
+    </QtMoc>
+    <QtMoc Include="AboutDlg.h">
       <Filter>[ Framework ]</Filter>
     </QtMoc>
   </ItemGroup>

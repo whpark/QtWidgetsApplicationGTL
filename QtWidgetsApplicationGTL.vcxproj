@@ -133,12 +133,16 @@ xcopy /dy $(PathGTL)\bin\gtl.qt.x$(PlatformArchitecture)$(Configuration[0]).dll 
     </QtMoc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtMoc Include="App.h" />
+    <QtMoc Include="AboutDlg.h" />
     <ClInclude Include="resource.h" />
     <QtRcc Include="resource.qrc" />
+    <QtUic Include="AboutDlg.ui" />
     <QtUic Include="MainWnd.ui" />
     <QtMoc Include="MainWnd.h" />
+    <ClCompile Include="AboutDlg.cpp" />
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="MainWnd.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClCompile Include="pch.cpp">
