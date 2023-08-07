@@ -7,3 +7,6 @@
 #include <QtWidgets>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
+
+using namespace std::literals;
+using namespace gtl::literals;
