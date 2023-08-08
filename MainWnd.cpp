@@ -11,7 +11,7 @@ xMainWnd::xMainWnd(QWidget *parent) : base_t(parent) {
 	LoadWindowPosition(theApp().GetReg(), "MainWnd", this);
 
 	// Application Icon
-	QIcon* icon = new QIcon(":/image/icon.png");
+	QIcon* icon = new QIcon(":/image/icon.ico");
 	setWindowIcon(*icon);
 
 	connect(ui.actionAbout, &QAction::triggered, this, &this_t::OnAction_About);
