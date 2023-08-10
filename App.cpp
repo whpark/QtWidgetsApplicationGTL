@@ -3,12 +3,23 @@
 
 int main(int argc, char* argv[]) {
 	//auto r = gtl::SetCurrentPath_BinFolder();
-	xApp a(argc, argv);
-	return a.exec();
+	xApp app(argc, argv);
+	if (!app.Init())
+		return -1;
+
+	return app.exec();
 }
 
 xApp::xApp(int &argc, char **argv) : QApplication(argc, argv) {
-	m_wndMain.show();
+}
+
+bool xApp::Init() {
+	//setStyle("fusion");
+
+	m_wndMain = std::make_unique<xMainWnd>();
+	m_wndMain->show();
+
+	return true;
 }
 
 xApp::~xApp() {

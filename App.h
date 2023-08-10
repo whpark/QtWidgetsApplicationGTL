@@ -11,16 +11,17 @@ public:
 
 protected:
 	QSettings m_reg { "Biscuit-lab", "TestApp" };
-	xMainWnd m_wndMain;
+	std::unique_ptr<xMainWnd> m_wndMain;
 
 public:
 	xApp(int &argc, char **argv/*, int flag = ApplicationFlags*/);
 	~xApp();
 
-	xMainWnd& GetMainWnd() { return m_wndMain; }
+	bool Init();
 
 public:
 	QSettings& GetReg() { return m_reg; };
+	xMainWnd& GetMainWnd() { return *m_wndMain; }
 
 };
 
