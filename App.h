@@ -26,6 +26,4 @@ public:
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
-inline xApp& theApp() {
-	return *static_cast<xApp*>(QCoreApplication::instance());
-}
+extern std::optional<xApp> theApp;

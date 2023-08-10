@@ -1,16 +1,12 @@
 #include "pch.h"
 #include "App.h"
 
-int main(int argc, char* argv[]) {
-	//auto r = gtl::SetCurrentPath_BinFolder();
-	xApp app(argc, argv);
-	if (!app.Init())
-		return -1;
-
-	return app.exec();
-}
+std::optional<xApp> theApp;
 
 xApp::xApp(int &argc, char **argv) : QApplication(argc, argv) {
+}
+
+xApp::~xApp() {
 }
 
 bool xApp::Init() {
@@ -22,5 +18,11 @@ bool xApp::Init() {
 	return true;
 }
 
-xApp::~xApp() {
+int main(int argc, char* argv[]) {
+	//auto r = gtl::SetCurrentPath_BinFolder();
+	theApp.emplace(argc, argv);
+	if (!theApp->Init())
+		return -1;
+
+	return theApp->exec();
 }
