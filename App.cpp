@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "App.h"
 
+// icon path: D:\Project\gtl\src\gtl\icon_light.png
+
 std::optional<xApp> theApp;
 
 xApp::xApp(int &argc, char **argv) : QApplication(argc, argv) {
