@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
 		return -1;
 
 	auto r = theApp->exec();
-	theApp.reset();
 
+	theApp.reset();
 	return r;
 }
