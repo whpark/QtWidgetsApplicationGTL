@@ -21,8 +21,12 @@ bool xApp::Init() {
 int main(int argc, char* argv[]) {
 	//auto r = gtl::SetCurrentPath_BinFolder();
 	theApp.emplace(argc, argv);
+
 	if (!theApp->Init())
 		return -1;
 
-	return theApp->exec();
+	auto r = theApp->exec();
+	theApp.reset();
+
+	return r;
 }
