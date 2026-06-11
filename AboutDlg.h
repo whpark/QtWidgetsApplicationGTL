@@ -10,6 +10,8 @@ public:
 	xAboutDlg(QWidget* parent = nullptr);
 	~xAboutDlg();
 
+	std::string m_strID;
+
 private:
 	Ui::AboutDlgClass ui;
 };

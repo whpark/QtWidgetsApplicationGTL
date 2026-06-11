@@ -8,17 +8,19 @@ using namespace gtl::qt;
 xMainWnd::xMainWnd(QWidget *parent) : base_t(parent) {
     ui.setupUi(this);
 
-	LoadWindowPosition(theApp->GetReg(), "MainWnd", this);
+	auto& reg = app->GetReg();
+	LoadWindowPosition(reg, "MainWnd", this);
+
 
 	// Application Icon
-	QIcon* icon = new QIcon(":/image/icon.ico");
-	setWindowIcon(*icon);
+	if (auto icon = std::make_unique<QIcon>(":/image/icon.ico"))
+		setWindowIcon(*icon.release());
 
 	connect(ui.actionAbout, &QAction::triggered, this, &this_t::OnAction_About);
 }
 
 xMainWnd::~xMainWnd() {
-	SaveWindowPosition(theApp->GetReg(), "MainWnd", this);
+	SaveWindowPosition(app->GetReg(), "MainWnd", this);
 }
 
 void xMainWnd::OnAction_About(bool bChecked) {

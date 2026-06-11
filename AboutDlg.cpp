@@ -1,5 +1,6 @@
 ﻿#include "pch.h"
 
+#include "App.h"
 #include "AboutDlg.h"
 #include "gtl/qt/util.h"
 
@@ -7,6 +8,11 @@ using namespace gtl::qt;
 
 xAboutDlg::xAboutDlg(QWidget* parent) : QDialog(parent) {
 	ui.setupUi(this);
+	ui.txtID->setText("");
+
+	if (auto txt = gtl::FileToString(app->GetRoot() / "readme.md")) {
+		ui.textEdit->setMarkdown(ToQString(*txt));
+	}
 
 	QString strBuildDate;
 	try {
@@ -24,9 +30,13 @@ xAboutDlg::xAboutDlg(QWidget* parent) : QDialog(parent) {
 		strBuildDate = __DATE__;
 	}
 
-	ui.groupBoxNabi->setTitle(strBuildDate);
+	ui.grpAbout->setTitle(strBuildDate);
 
-	connect(ui.buttonBox, &QDialogButtonBox::clicked, this, [this](auto*){ accept(); });
+	connect(ui.buttonBox, &QDialogButtonBox::accepted, this, [this]{
+		m_strID = ui.txtID->text().toStdString();
+		accept();
+	});
+	connect(ui.buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
 }
 
 xAboutDlg::~xAboutDlg() {

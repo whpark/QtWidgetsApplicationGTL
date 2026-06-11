@@ -20,11 +20,11 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -35,7 +35,6 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>6.8.3_msvc2022_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -54,10 +53,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <IntDir>$(SolutionDir)$(Platform)\Temp\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\Temp\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <IntDir>$(SolutionDir)$(Platform)\Temp\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)$(Platform)\Temp\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <VcpkgConfiguration>$(Configuration)</VcpkgConfiguration>
@@ -68,48 +67,38 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(PathGTL)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)gtl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
-      <BuildStlModules>false</BuildStlModules>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <WarningLevel>Level3</WarningLevel>
       <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>/bigobj /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>$(PathGTL)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <PreBuildEvent>
-      <Command>xcopy /dy $(PathGTL)\bin\gtl.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.win.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.shape.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.qt.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-</Command>
-    </PreBuildEvent>
+    <Link />
+    <PreBuildEvent />
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(PathGTL)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)include;$(SolutionDir)gtl\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UseStandardPreprocessor>true</UseStandardPreprocessor>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <WarningLevel>Level3</WarningLevel>
-      <BuildStlModules>false</BuildStlModules>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>/bigobj /utf-8 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>$(PathGTL)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-    </Link>
-    <PreBuildEvent>
-      <Command>xcopy /dy $(PathGTL)\bin\gtl.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.win.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.shape.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-xcopy /dy $(PathGTL)\bin\gtl.qt.x$(PlatformArchitecture)$(Configuration[0]).dll $(TargetDir)
-</Command>
-    </PreBuildEvent>
+    <Link />
+    <PreBuildEvent />
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>

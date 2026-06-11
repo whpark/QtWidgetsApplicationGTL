@@ -1,34 +1,49 @@
 #include "pch.h"
 #include "App.h"
 
-// icon path: D:\Project\gtl\src\gtl\icon_light.png
+//W_OBJECT_IMPL(xApp)
 
-std::optional<xApp> theApp;
+std::optional<xApp> app;
 
 xApp::xApp(int &argc, char **argv) : QApplication(argc, argv) {
+	m_root = gtl::SetCurrentPath_ProjectFolder(L"").value_or("C:\\");
+
+
+	setStyle("fusion");
+
+	setOrganizationName("Biscuit-lab");
+	setOrganizationDomain("biscuit-lab.com");
+	setApplicationName("TestApp");
+
+	//auto folderProject = GetDefaultProjectRoot();
+	//if (!std::filesystem::exists(folderProject))
+	//	std::filesystem::create_directories(folderProject);
 }
 
 xApp::~xApp() {
 }
 
-bool xApp::Init() {
-	//setStyle("fusion");
+int xApp::Run() {
 
 	m_wndMain = std::make_unique<xMainWnd>();
 	m_wndMain->show();
 
-	return true;
+	return exec();
 }
 
 int main(int argc, char* argv[]) {
-	//auto r = gtl::SetCurrentPath_BinFolder();
-	theApp.emplace(argc, argv);
+	// set locale utf-8 (NOT WORKING ON WINDOWS)
+	std::locale l("ko_kr.utf-8");
+	auto gl = std::locale::global(l);
 
-	if (!theApp->Init())
-		return -1;
+	//FreeImage_Initialise();
 
-	auto r = theApp->exec();
+	if (argc > 1)
+		argc = 1;
+	app.emplace(argc, argv);
 
-	theApp.reset();
+	auto r = app->Run();
+
+	//FreeImage_DeInitialise();
 	return r;
 }
