@@ -8,7 +8,7 @@ using namespace gtl::qt;
 xMainWnd::xMainWnd(QWidget *parent) : base_t(parent) {
     ui.setupUi(this);
 
-	auto& reg = app->GetReg();
+	auto& reg = theApp->GetReg();
 	LoadWindowPosition(reg, "MainWnd", this);
 
 
@@ -20,7 +20,7 @@ xMainWnd::xMainWnd(QWidget *parent) : base_t(parent) {
 }
 
 xMainWnd::~xMainWnd() {
-	SaveWindowPosition(app->GetReg(), "MainWnd", this);
+	SaveWindowPosition(theApp->GetReg(), "MainWnd", this);
 }
 
 void xMainWnd::OnAction_About(bool bChecked) {

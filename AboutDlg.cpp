@@ -2,17 +2,56 @@
 
 #include "App.h"
 #include "AboutDlg.h"
-#include "gtl/qt/util.h"
 
 using namespace gtl::qt;
 
 xAboutDlg::xAboutDlg(QWidget* parent) : QDialog(parent) {
 	ui.setupUi(this);
-	ui.txtID->setText("");
 
-	if (auto txt = gtl::FileToString(app->GetRoot() / "readme.md")) {
-		ui.textEdit->setMarkdown(ToQString(*txt));
-	}
+	QString strContent =
+R"xxx(
+
+# **{}** is built on
+
+- openCV ( <https://opencv.org> )
+
+  (license : [https://opencv.org/license/ )](https://opencv.org/license/)
+
+<br/>
+
+- Qt 6 ( <https://www.qt.io/> )
+
+  (license : <https://www.qt.io/licensing/open-source-lgpl-obligations> )
+
+  The Qt Toolkit is Copyright (C) The Qt Company Ltd.
+
+  Qt is licensed under terms of the GNU LGPLv3,
+
+<br/>
+
+- fmtlib ( <https://fmt.dev/> )
+
+  (license : MIT license. <https://github.com/fmtlib/fmt?tab=MIT-1-ov-file> )
+
+<br/>
+
+- ctre ( <https://compile-time.re/> )
+
+  (license : Apache License 2.0. <https://github.com/hanickadot/compile-time-regular-expressions?tab=Apache-2.0-1-ov-file#readme> )
+
+<br/>
+
+- glaze ( <https://github.com/stephenberry/glaze> )
+
+  (license : MIT license. <https://github.com/stephenberry/glaze?tab=MIT-1-ov-file#readme> )
+<br/>
+
+- gtl ( <https://github.com/whpark/gtl> )
+<br/>
+
+)xxx";
+
+	ui.textEdit->setMarkdown(strContent);
 
 	QString strBuildDate;
 	try {
@@ -30,13 +69,9 @@ xAboutDlg::xAboutDlg(QWidget* parent) : QDialog(parent) {
 		strBuildDate = __DATE__;
 	}
 
-	ui.grpAbout->setTitle(strBuildDate);
+	ui.groupBoxAbout->setTitle(strBuildDate);
 
-	connect(ui.buttonBox, &QDialogButtonBox::accepted, this, [this]{
-		m_strID = ui.txtID->text().toStdString();
-		accept();
-	});
-	connect(ui.buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+	connect(ui.buttonBox, &QDialogButtonBox::clicked, this, &xAboutDlg::accept);
 }
 
 xAboutDlg::~xAboutDlg() {

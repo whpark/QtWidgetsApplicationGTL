@@ -1,7 +1,6 @@
 #pragma once
 
 #include "gtl/gtl.h"
-#include "gtl/win/win.h"
 #include "gtl/qt/qt.h"
 #include "gtl/qt/util.h"
 

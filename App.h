@@ -10,21 +10,28 @@ public:
 	using base_t = QApplication;
 
 protected:
-	QSettings m_reg { "Biscuit-lab", "TestApp" };
+	inline static QString const s_strOrgName{"Biscuit-lab"};
+	inline static QString const s_strOrgDomain{"biscuit-lab.com"};
+	inline static QString const s_strAppName{"TestApp"};
+	QSettings m_reg { s_strOrgName, s_strAppName };
+
 	std::unique_ptr<xMainWnd> m_wndMain;
 	std::filesystem::path m_root;
+	std::filesystem::path m_pathExec;
 
 public:
 	xApp(int &argc, char **argv/*, int flag = ApplicationFlags*/);
 	~xApp();
 
+	bool Init();
 	int Run();
 
 	std::filesystem::path const& GetRoot() const { return m_root; }
+	std::filesystem::path const& GetPathExec() const { return m_pathExec; }
 	std::filesystem::path const& GetDefaultProjectRoot() const {
 		//auto str = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
 		//static std::filesystem::path root = [] { return std::filesystem::path(str.toStdWString()) / L"TestApp"; }();
-		static std::filesystem::path root = m_root.root_path() / "TestApp";
+		static std::filesystem::path root = m_root.root_path() / s_strAppName.toStdWString();
 		return root;
 	}
 
@@ -34,5 +41,5 @@ public:
 };
 
 //---------------------------------------------------------------------------------------------------------------------------------
-extern std::optional<xApp> app;
+extern std::optional<xApp> theApp;
 

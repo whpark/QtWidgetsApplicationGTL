@@ -6,39 +6,39 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>531</width>
-    <height>914</height>
+    <width>664</width>
+    <height>507</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>AboutDlg</string>
+   <string>About ShapeScope</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="grpAbout">
+    <widget class="QGroupBox" name="groupBoxAbout">
      <property name="title">
-      <string>Maskify 1.0.0.2 2023-07-27</string>
+      <string>Build Date</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item alignment="Qt::AlignmentFlag::AlignHCenter">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item alignment="Qt::AlignmentFlag::AlignTop">
        <widget class="QLabel" name="label">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
+        <property name="maximumSize">
+         <size>
+          <width>128</width>
+          <height>128</height>
+         </size>
         </property>
         <property name="text">
          <string notr="true"/>
         </property>
         <property name="pixmap">
-         <pixmap resource="resource.qrc">:/image/icon.png</pixmap>
+         <pixmap>:/image/res/icon256.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
         </property>
         <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -47,51 +47,10 @@
         <property name="undoRedoEnabled">
          <bool>false</bool>
         </property>
-        <property name="html">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
         <property name="textInteractionFlags">
          <set>Qt::TextInteractionFlag::TextSelectableByMouse</set>
         </property>
        </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string/>
-        </property>
-        <property name="icon">
-         <iconset resource="resource.qrc">
-          <normaloff>:/image/res/ci.bmp</normaloff>:/image/res/ci.bmp</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>121</width>
-          <height>40</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="text">
-           <string>Input ID :</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="txtID"/>
-        </item>
-       </layout>
       </item>
      </layout>
     </widget>
@@ -102,13 +61,13 @@ li.checked::marker { content: &quot;\2612&quot;; }
       <enum>Qt::Orientation::Horizontal</enum>
      </property>
      <property name="standardButtons">
-      <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Ok</set>
+      <set>QDialogButtonBox::StandardButton::Close</set>
      </property>
     </widget>
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="2" margin="4"/>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="resource.qrc"/>
  </resources>
